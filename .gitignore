@@ -1,0 +1,50 @@
+### Maven ###
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### Env / secrets ###
+.env
+application-prod.yml
+application-prod.properties
+
+### Logs ###
+logs/
+*.log
+
+### Kotlin ###
+.kotlin
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse / STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### macOS ###
+.DS_Store
