@@ -8,6 +8,9 @@ target/
 application-prod.yml
 application-prod.properties
 
+# Dev-only seed data
+src/main/java/com/bank/infrastructure/config/DevDataLoader.java
+
 ### Logs ###
 logs/
 *.log

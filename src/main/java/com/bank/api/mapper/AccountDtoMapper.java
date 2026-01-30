@@ -10,8 +10,9 @@ public class AccountDtoMapper {
     public static AccountDto toDto(Account account) {
         return new AccountDto(
                 account.getId(),
-                account.getOwner(),
-                account.getBalance()
+                account.getName(),
+                account.getBalance(),
+                account.getUserId()
         );
     }
 }

@@ -1,5 +1,5 @@
 package com.bank.infrastructure.persistence.transaction;
-import com.bank.domain.BankTransaction;
+import com.bank.domain.Transaction;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
@@ -25,7 +25,7 @@ class JpaTransactionRepositoryIT{
                 UUID.randomUUID(),
                 accountId,
                 new BigDecimal("100.00"),
-                BankTransaction.TransactionType.DEBIT
+                Transaction.TransactionType.OUT
         );
 
         jpaTransactionRepository.save(entity);

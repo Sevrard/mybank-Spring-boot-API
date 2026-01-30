@@ -1,9 +1,9 @@
 package com.bank.application;
 import com.bank.domain.Account;
-import com.bank.domain.BankTransaction;
-import com.bank.domain.exception.AccountNotFoundException;
-import com.bank.domain.exception.InvalidTransactionAmountException;
-import com.bank.domain.exception.SameAccountTransferException;
+import com.bank.domain.Transaction;
+import com.bank.domain.exception.account.AccountNotFoundException;
+import com.bank.domain.exception.transaction.InvalidTransactionAmountException;
+import com.bank.domain.exception.transaction.SameAccountTransferException;
 import com.bank.domain.repository.AccountRepository;
 import com.bank.domain.repository.TransactionRepository;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 
 public class TransferWithAuditUseCase {
 
-    private static final Logger log = LoggerFactory.getLogger(CreateAccountUseCase.class);
+    private static final Logger log = LoggerFactory.getLogger(TransferWithAuditUseCase.class);
     private final AccountRepository accountRepository;
     private final TransactionRepository transactionRepository;
 
@@ -26,10 +26,9 @@ public class TransferWithAuditUseCase {
     }
 
     @Transactional
-    public void execute(UUID fromAccountId,
-                        UUID toAccountId,
-                        BigDecimal amount) {
+    public void execute(UUID fromAccountId, UUID toAccountId, BigDecimal amount) {
 
+        log.info("GO TRANSFER ===============>  from={}, to={}, amount={}", fromAccountId, toAccountId, amount);
 
         if (fromAccountId.equals(toAccountId)) {
             throw new SameAccountTransferException();
@@ -37,14 +36,7 @@ public class TransferWithAuditUseCase {
         if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new InvalidTransactionAmountException();
         }
-        log.info("TRANSFERTTTTTTT !!!!!!!!!! id={}, owner={}, balance={}",
-                fromAccountId, toAccountId, amount);
-//        log.info("TX active = {}",
-//                TransactionSynchronizationManager.isActualTransactionActive()
-//        );
-//        log.info("TransactionRepository impl = {}",
-//                transactionRepository.getClass().getName()
-//        );
+
         Account from = accountRepository.findById(fromAccountId)
                 .orElseThrow(() -> new AccountNotFoundException(fromAccountId));
 
@@ -58,10 +50,10 @@ public class TransferWithAuditUseCase {
         accountRepository.save(to);
 
         transactionRepository.save(
-                BankTransaction.debit(fromAccountId, amount)
+                Transaction.debit(fromAccountId, amount)
         );
         transactionRepository.save(
-                BankTransaction.credit(toAccountId, amount)
+                Transaction.credit(toAccountId, amount)
         );
     }
 

@@ -1,4 +1,4 @@
-package com.bank.domain.exception;
+package com.bank.domain.exception.account;
 
 import java.util.UUID;
 

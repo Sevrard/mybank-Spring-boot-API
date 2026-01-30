@@ -1,6 +1,6 @@
 package com.bank.application;
 
-import com.bank.domain.BankTransaction;
+import com.bank.domain.Transaction;
 import com.bank.domain.repository.TransactionRepository;
 
 public class RecordTransactionUseCase {
@@ -10,7 +10,7 @@ public class RecordTransactionUseCase {
     public RecordTransactionUseCase(TransactionRepository transactionRepository) {
         this.transactionRepository = transactionRepository;
     }
-    public void record(BankTransaction transaction) {
+    public void record(Transaction transaction) {
         transactionRepository.save(transaction);
     }
 }

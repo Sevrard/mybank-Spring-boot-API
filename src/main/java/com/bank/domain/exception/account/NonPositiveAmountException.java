@@ -1,4 +1,4 @@
-package com.bank.domain.exception;
+package com.bank.domain.exception.account;
 
 public class NonPositiveAmountException extends RuntimeException {
     public NonPositiveAmountException(String operation){

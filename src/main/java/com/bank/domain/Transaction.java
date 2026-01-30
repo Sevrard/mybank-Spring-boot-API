@@ -1,14 +1,14 @@
 package com.bank.domain ;
 
-import com.bank.domain.exception.InvalidTransactionAmountException;
-import com.bank.domain.exception.MissingTransactionTypeException;
-import com.bank.domain.exception.MissingAccountReferenceException;
+import com.bank.domain.exception.transaction.InvalidTransactionAmountException;
+import com.bank.domain.exception.transaction.MissingTransactionTypeException;
+import com.bank.domain.exception.transaction.MissingAccountReferenceException;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-public class BankTransaction{
+public class Transaction {
 
     private final UUID id;
     private final BigDecimal amount;
@@ -18,12 +18,11 @@ public class BankTransaction{
 
 
     public enum TransactionType {
-        DEBIT,
-        CREDIT,
-        TRANSFER
+        IN,
+        OUT
     }
 
-    public BankTransaction(UUID id, UUID accountId, BigDecimal amount, TransactionType type){
+    public Transaction(UUID id, UUID accountId, BigDecimal amount, TransactionType type){
         if(id == null){
             throw new IllegalArgumentException("Transaction id required");
         }
@@ -48,20 +47,20 @@ public class BankTransaction{
     public LocalDateTime getCreatedAt(){ return createdAt; };
     public UUID getAccountId(){ return accountId; }
 
-    public static BankTransaction debit(UUID accountId, BigDecimal amount) {
-        return new BankTransaction(
+    public static Transaction debit(UUID accountId, BigDecimal amount) {
+        return new Transaction(
                 UUID.randomUUID(),
                 accountId,
                 amount,
-                TransactionType.DEBIT
+                TransactionType.OUT
         );
     }
-    public static BankTransaction credit(UUID accountId, BigDecimal amount) {
-        return new BankTransaction(
+    public static Transaction credit(UUID accountId, BigDecimal amount) {
+        return new Transaction(
                 UUID.randomUUID(),
                 accountId,
                 amount,
-                TransactionType.CREDIT
+                TransactionType.IN
         );
     }
 

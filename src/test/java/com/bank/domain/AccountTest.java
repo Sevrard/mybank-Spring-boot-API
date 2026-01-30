@@ -1,8 +1,8 @@
 package com.bank.domain;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
-import com.bank.domain.exception.InsufficientFundsException;
-import com.bank.domain.exception.NonPositiveAmountException;
+import com.bank.domain.exception.transaction.InsufficientFundsException;
+import com.bank.domain.exception.account.NonPositiveAmountException;
 
 import java.math.BigDecimal;
 

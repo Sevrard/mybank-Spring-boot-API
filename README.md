@@ -15,8 +15,8 @@ Ce dépôt correspond à l’état DEV stable du projet, avant migration vers Po
 
 ## 🧱 État actuel (DEV)
 
-✔ Architecture propre (inspirée Clean Architecture)  
-✔ Spring Boot 3.2.x / Java 21  
+✔ Architect'ure propre (inspirée Clean Architecture)  
+'✔ Spring Boot 3.2.x / Java 21  
 ✔ JPA / Hibernate  
 ✔ Base **H2 (in-memory)** pour le développement  
 ✔ Entities Account & Transaction déjà en place  

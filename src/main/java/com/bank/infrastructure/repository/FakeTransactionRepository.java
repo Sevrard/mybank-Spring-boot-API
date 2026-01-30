@@ -1,6 +1,6 @@
 package com.bank.infrastructure.repository;
 
-import com.bank.domain.BankTransaction;
+import com.bank.domain.Transaction;
 import com.bank.domain.repository.TransactionRepository;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
@@ -12,18 +12,18 @@ import java.util.*;
 
 public class FakeTransactionRepository implements TransactionRepository {
 
-    private final List<BankTransaction> storage = new ArrayList<>();
+    private final List<Transaction> storage = new ArrayList<>();
 
     @Override
-    public List<BankTransaction> findByAccountId(UUID accountId) {
+    public List<Transaction> findByAccountId(UUID accountId) {
         return storage;
     }
 
     @Override
-    public void save(BankTransaction transaction) {
+    public void save(Transaction transaction) {
         storage.add(transaction);
     }
-    public List<BankTransaction> findAll() {
+    public List<Transaction> findAll() {
         return storage;
     }
 }

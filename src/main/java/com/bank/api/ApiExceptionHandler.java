@@ -1,6 +1,6 @@
 package com.bank.api;
 
-import com.bank.domain.exception.AccountNotFoundException;
+import com.bank.domain.exception.account.AccountNotFoundException;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

@@ -1,8 +1,8 @@
 package com.bank.domain;
 
-import com.bank.domain.exception.InvalidTransactionAmountException;
-import com.bank.domain.exception.MissingAccountReferenceException;
-import com.bank.domain.exception.MissingTransactionTypeException;
+import com.bank.domain.exception.transaction.InvalidTransactionAmountException;
+import com.bank.domain.exception.transaction.MissingAccountReferenceException;
+import com.bank.domain.exception.transaction.MissingTransactionTypeException;
 import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -14,17 +14,17 @@ public class BankTransactionTest {
     ///  HAPOY ///
     @Test
     void should_create_valid_transaction() {
-        BankTransaction transaction =
+        Transaction transaction =
                 BankTransactionTestFactory.createTransaction(
                         UUID.randomUUID(),
                         UUID.randomUUID(),
                         new BigDecimal("100.00"),
-                        BankTransaction.TransactionType.CREDIT
+                        Transaction.TransactionType.CREDIT
                 );
 
         assertNotNull(transaction.getId());
         assertEquals(new BigDecimal("100.00"), transaction.getAmount());
-        assertEquals(BankTransaction.TransactionType.CREDIT, transaction.getType());
+        assertEquals(Transaction.TransactionType.CREDIT, transaction.getType());
         assertNotNull(transaction.getCreatedAt());
     }
 
@@ -35,7 +35,7 @@ public class BankTransactionTest {
                 UUID.randomUUID(),
                 UUID.randomUUID(),
                 new BigDecimal("-100.00"),
-                BankTransaction.TransactionType.DEBIT
+                Transaction.TransactionType.DEBIT
         ));
     }
     @Test
@@ -45,7 +45,7 @@ public class BankTransactionTest {
                         UUID.randomUUID(),
                         UUID.randomUUID(),
                         BigDecimal.ZERO,
-                        BankTransaction.TransactionType.DEBIT
+                        Transaction.TransactionType.DEBIT
                 )
         );
     }
@@ -67,7 +67,7 @@ public class BankTransactionTest {
                         UUID.randomUUID(),
                         null,
                         new BigDecimal("50.00"),
-                        BankTransaction.TransactionType.TRANSFER
+                        Transaction.TransactionType.TRANSFER
                 )
         );
     }
@@ -78,7 +78,7 @@ public class BankTransactionTest {
                         null,
                         UUID.randomUUID(),
                         new BigDecimal("50.00"),
-                        BankTransaction.TransactionType.DEBIT
+                        Transaction.TransactionType.DEBIT
                 )
         );
     }

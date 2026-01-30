@@ -30,8 +30,9 @@ public class AccountController {
     public void create(@RequestBody CreateAccountRequest dto) {
         createAccountUseCase.execute(
                 dto.id(),
-                dto.owner(),
-                dto.initialBalance()
+                dto.name(),
+                dto.initialBalance(),
+                dto.userId()
         );
     }
 

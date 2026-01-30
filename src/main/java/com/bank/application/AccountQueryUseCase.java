@@ -1,7 +1,7 @@
 package com.bank.application;
 
 import com.bank.domain.Account;
-import com.bank.domain.exception.AccountNotFoundException;
+import com.bank.domain.exception.account.AccountNotFoundException;
 import com.bank.domain.repository.AccountRepository;
 import java.util.UUID;
 

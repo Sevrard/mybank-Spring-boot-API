@@ -1,4 +1,4 @@
-package com.bank.domain.exception;
+package com.bank.domain.exception.transaction;
 
 public class MissingTransactionTypeException extends RuntimeException{
     public MissingTransactionTypeException(){

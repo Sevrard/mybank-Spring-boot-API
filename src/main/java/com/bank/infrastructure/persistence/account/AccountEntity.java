@@ -1,6 +1,7 @@
 package com.bank.infrastructure.persistence.account;
 
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 import java.util.UUID;
 
@@ -9,22 +10,30 @@ import java.util.UUID;
 public class AccountEntity {
 
     @Id
-    @Column(nullable = false, updatable = false)
-    UUID id;
+    @GeneratedValue
+    private UUID id;
 
     @Column(nullable = false)
-    private String owner;
+    private String name;
+
     @Column(nullable = false, precision = 19, scale = 2)
     private BigDecimal balance;
 
-    protected AccountEntity(){}
-    public AccountEntity(UUID id, String owner, BigDecimal balance){
+    @Column(name = "user_id", nullable = false)
+    private UUID userId;
+
+    protected AccountEntity() {}
+
+    public AccountEntity(UUID id, String name, BigDecimal balance, UUID userId) {
         this.id = id;
-        this.owner = owner;
+        this.name = name;
         this.balance = balance;
+        this.userId = userId;
     }
 
     public UUID getId() { return id; }
-    public String getOwner() { return owner; }
-    public BigDecimal getBalance() {return balance; }
+    public String getName() { return name; }
+    public BigDecimal getBalance() { return balance; }
+    public UUID getUserId() { return userId; }
+
 }

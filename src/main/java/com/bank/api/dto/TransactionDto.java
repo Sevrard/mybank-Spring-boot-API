@@ -1,6 +1,6 @@
 package com.bank.api.dto;
 
-import com.bank.domain.BankTransaction;
+import com.bank.domain.Transaction;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -10,6 +10,6 @@ public record TransactionDto(
         UUID id,
         UUID accountId,
         BigDecimal amount,
-        BankTransaction.TransactionType type,
+        Transaction.TransactionType type,
         LocalDateTime createdAt
 ) {}

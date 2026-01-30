@@ -9,13 +9,12 @@ import java.util.UUID;
 public class CreateAccountUseCase {
 
     private final AccountRepository accountRepository;
-
     public CreateAccountUseCase(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 
-    public void execute(UUID id, String owner, BigDecimal initialBalance) {
-        Account account = new Account(id, owner, initialBalance);
+    public void execute(UUID id, String name, BigDecimal initialBalance, UUID userId) {
+        Account account = new Account(id, name, initialBalance, userId);
         accountRepository.save(account);
     }
 }

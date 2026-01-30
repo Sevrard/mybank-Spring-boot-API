@@ -5,6 +5,7 @@ import java.util.UUID;
 
 public record CreateAccountRequest(
         UUID id,
-        String owner,
-        BigDecimal initialBalance
+        String name,
+        BigDecimal initialBalance,
+        UUID userId
 ) {}

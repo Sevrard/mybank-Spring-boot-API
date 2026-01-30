@@ -2,7 +2,7 @@ package com.bank.application ;
 
 import com.bank.infrastructure.repository.FakeTransactionRepository;
 import org.junit.jupiter.api.Test;
-import com.bank.domain.BankTransaction;
+import com.bank.domain.Transaction;
 import static org.junit.jupiter.api.Assertions.*;
 import com.bank.domain.BankTransactionTestFactory;
 import java.math.BigDecimal;
@@ -14,12 +14,12 @@ public class RecordTransactionUseCaseTest  {
         FakeTransactionRepository fakeRepo = new FakeTransactionRepository();
         RecordTransactionUseCase useCase = new RecordTransactionUseCase(fakeRepo);
 
-        BankTransaction transaction =
+        Transaction transaction =
                 BankTransactionTestFactory.createTransaction(
                         UUID.randomUUID(),
                         UUID.randomUUID(),
                         new BigDecimal("100.00"),
-                        BankTransaction.TransactionType.CREDIT
+                        Transaction.TransactionType.CREDIT
                 );
 
         useCase.record(transaction);

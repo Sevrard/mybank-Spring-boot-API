@@ -1,39 +1,60 @@
+### Create user
+POST http://localhost:8080/users
+Content-Type: application/json
+
+{
+  "firstname": "SAAAtephane",
+  "lastname": "Evrard",
+  "email": "AAAA@test.com"
+}
+### Get user
+GET http://localhost:8080/users/c166261b-88e3-4840-aa39-01548531e612
+
+### JWT
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+
+{
+  "email": "john.doe@bank.com",
+  "password": "password123"
+}
+
 
 ### Create account 1
 POST http://localhost:8080/accounts
 Content-Type: application/json
 
 {
-  "id": "11111111-1111-1111-1111-111111111111",
-  "owner": "FFX",
-  "initialBalance": 500.00
+  "name": "Livret A",
+  "initialBalance": 500.00,
+  "userId": "8b8161aa-766c-4bb2-a3d1-b0ad88a0802e"
 }
+### GET account 1
+GET http://localhost:8080/accounts/7df96c1c-f7df-4239-98fa-93a53289c4be
+Content-Type: application/json
 
 ### Create account 2
 POST http://localhost:8080/accounts
 Content-Type: application/json
 
 {
-  "id": "22222222-2222-2222-2222-222222222222",
-  "owner": "LNNNNNN",
-  "initialBalance": 50.00
+  "name": "Compte courant",
+  "initialBalance": 50.00,
+  "userId": "8b8161aa-766c-4bb2-a3d1-b0ad88a0802e"
 }
-
-### GET account 1
-GET http://localhost:8080/accounts/11111111-1111-1111-1111-111111111111
-Content-Type: application/json
-
 ### GET account 2
 GET http://localhost:8080/accounts/22222222-2222-2222-2222-222222222222
 Content-Type: application/json
+
+
 
 ### Transfer money
 POST http://localhost:8080/transfers
 Content-Type: application/json
 
 {
-  "fromAccountId": "11111111-1111-1111-1111-111111111111",
-  "toAccountId": "22222222-2222-2222-2222-222222222222",
+  "fromAccountId": "dbdcafab-a484-4bbc-8e5b-f355f22a49c8",
+  "toAccountId": "dd0d73d2-5c9f-44aa-ba61-f8aa92643c8a",
   "amount": 50.00
 }
 
@@ -44,6 +65,17 @@ Content-Type: application/json
 ### GET transactions 2
 GET http://localhost:8080/transactions/22222222-2222-2222-2222-222222222222
 Content-Type: application/json
+
+////////////////////////////////////   LOGIN   ///////////////////////////////////////////////
+
+### LOGIN
+POST http://localhost:8080/auth/login
+Content-Type: application/json
+{
+  "email": "john.doe@bank.com",
+  "password": "password123"
+}
+
 
 
 

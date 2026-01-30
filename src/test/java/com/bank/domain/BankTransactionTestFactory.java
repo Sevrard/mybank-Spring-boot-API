@@ -4,13 +4,13 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 public class BankTransactionTestFactory{
-    public static BankTransaction createTransaction(
+    public static Transaction createTransaction(
             UUID id,
             UUID AccountId,
             BigDecimal amount,
-            BankTransaction.TransactionType type
+            Transaction.TransactionType type
     ) {
-        return new BankTransaction(
+        return new Transaction(
                 id,
                 AccountId,
                 amount,

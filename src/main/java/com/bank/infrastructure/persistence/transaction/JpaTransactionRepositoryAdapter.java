@@ -1,6 +1,6 @@
 package com.bank.infrastructure.persistence.transaction;
 
-import com.bank.domain.BankTransaction;
+import com.bank.domain.Transaction;
 import com.bank.domain.repository.TransactionRepository;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
@@ -23,13 +23,13 @@ public class JpaTransactionRepositoryAdapter implements TransactionRepository{
     }
 
     @Override
-    public void save(BankTransaction bankTransaction) {
+    public void save(Transaction bankTransaction) {
         Objects.requireNonNull(bankTransaction, "Transaction cannot be null");
         jpaTransactionRepository.save(TransactionMapper.toEntity(bankTransaction));
     }
 
     @Override
-    public List<BankTransaction> findByAccountId(UUID accountId) {
+    public List<Transaction> findByAccountId(UUID accountId) {
         return jpaTransactionRepository.findByAccountId(accountId)
                 .stream()
                 .map(TransactionMapper::toDomain)

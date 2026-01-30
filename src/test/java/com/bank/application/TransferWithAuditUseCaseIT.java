@@ -1,9 +1,8 @@
 package com.bank.application;
 
 import com.bank.domain.Account;
-import com.bank.domain.exception.InsufficientFundsException;
+import com.bank.domain.exception.transaction.InsufficientFundsException;
 import com.bank.domain.repository.AccountRepository;
-import com.bank.domain.repository.TransactionRepository;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,11 +1,8 @@
 package com.bank.api;
 
 import com.bank.api.dto.TransferRequest;
-import com.bank.application.CreateAccountUseCase;
 import com.bank.application.TransferWithAuditUseCase;
 import jakarta.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,5 +24,4 @@ public class TransferController {
                 dto.amount()
         );
     }
-
 }

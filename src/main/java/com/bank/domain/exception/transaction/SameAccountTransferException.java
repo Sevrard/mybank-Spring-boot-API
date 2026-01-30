@@ -1,6 +1,4 @@
-package com.bank.domain.exception;
-
-import java.util.UUID;
+package com.bank.domain.exception.transaction;
 
 public class SameAccountTransferException extends RuntimeException {
     public SameAccountTransferException(){
