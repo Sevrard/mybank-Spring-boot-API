@@ -1,4 +1,4 @@
-package com.bank.application;
+package com.bank.application.test;
 
 import com.bank.domain.Transaction;
 import com.bank.domain.repository.TransactionRepository;

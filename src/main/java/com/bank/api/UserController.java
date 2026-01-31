@@ -3,9 +3,9 @@ package com.bank.api;
 import com.bank.api.dto.CreateUserRequest;
 import com.bank.api.dto.UserDto;
 import com.bank.api.mapper.UserDtoMapper;
-import com.bank.application.CreateAccountUseCase;
-import com.bank.application.CreateUserUseCase;
-import com.bank.application.UserQueryUseCase;
+import com.bank.application.RecordAccountUseCase;
+import com.bank.application.RecordUserUseCase;
+import com.bank.application.QueryUserUseCase;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,14 +18,14 @@ import java.util.UUID;
 @RequestMapping("/users")
 public class UserController {
 
-    private final CreateUserUseCase createUserUseCase;
-    private final UserQueryUseCase userQueryUseCase;
-    private static final Logger log = LoggerFactory.getLogger(CreateAccountUseCase.class);
+    private final RecordUserUseCase createUserUseCase;
+    private final QueryUserUseCase userQueryUseCase;
+    private static final Logger log = LoggerFactory.getLogger(RecordAccountUseCase.class);
 
 
     public UserController(
-            CreateUserUseCase createUserUseCase,
-            UserQueryUseCase userQueryUseCase
+            RecordUserUseCase createUserUseCase,
+            QueryUserUseCase userQueryUseCase
     ) {
         this.createUserUseCase = createUserUseCase;
         this.userQueryUseCase = userQueryUseCase;

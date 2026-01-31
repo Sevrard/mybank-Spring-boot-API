@@ -13,14 +13,14 @@ import java.util.UUID;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TransferWithAuditUseCase {
+public class RecordTransferWithAuditUseCase {
 
-    private static final Logger log = LoggerFactory.getLogger(TransferWithAuditUseCase.class);
+    private static final Logger log = LoggerFactory.getLogger(RecordTransferWithAuditUseCase.class);
     private final AccountRepository accountRepository;
     private final TransactionRepository transactionRepository;
 
-    public TransferWithAuditUseCase(AccountRepository accountRepository,
-                                    TransactionRepository transactionRepository) {
+    public RecordTransferWithAuditUseCase(AccountRepository accountRepository,
+                                          TransactionRepository transactionRepository) {
         this.accountRepository = accountRepository;
         this.transactionRepository = transactionRepository;
     }

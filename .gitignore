@@ -5,6 +5,8 @@ target/
 
 ### Env / secrets ###
 .env
+docker-compose.override.yml
+application-dev.yml
 application-prod.yml
 application-prod.properties
 

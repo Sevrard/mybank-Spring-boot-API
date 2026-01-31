@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.UUID;
 
 
-public class TransactionQueryUseCase {
+public class QueryTransactionUseCase {
 
     private final TransactionRepository transactionRepository;
 
-    public TransactionQueryUseCase(TransactionRepository transactionRepository) {
+    public QueryTransactionUseCase(TransactionRepository transactionRepository) {
         this.transactionRepository = transactionRepository;
     }
 

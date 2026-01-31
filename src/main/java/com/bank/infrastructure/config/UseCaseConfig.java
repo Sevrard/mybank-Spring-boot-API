@@ -10,11 +10,11 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class UseCaseConfig{
     @Bean
-    public TransferWithAuditUseCase transferWithAuditUseCase(
+    public RecordTransferWithAuditUseCase transferWithAuditUseCase(
             AccountRepository accountRepository,
             TransactionRepository transactionRepository
     ) {
-        return new TransferWithAuditUseCase(
+        return new RecordTransferWithAuditUseCase(
                 accountRepository,
                 transactionRepository
         );
@@ -22,36 +22,36 @@ public class UseCaseConfig{
 
     /// TRANSACTION ///
     @Bean
-    public TransactionQueryUseCase transactionQueryUseCase(TransactionRepository transactionRepository) {
-        return new TransactionQueryUseCase(
+    public QueryTransactionUseCase transactionQueryUseCase(TransactionRepository transactionRepository) {
+        return new QueryTransactionUseCase(
                 transactionRepository
         );
     }
 
     ///  ACCOUNT //
     @Bean
-    public CreateAccountUseCase createAccountUseCase(AccountRepository accountRepository) {
-        return new CreateAccountUseCase(
+    public RecordAccountUseCase createAccountUseCase(AccountRepository accountRepository) {
+        return new RecordAccountUseCase(
                accountRepository
         );
     }
     @Bean
-    public AccountQueryUseCase accountQueryUseCase(AccountRepository accountRepository) {
-        return new AccountQueryUseCase(
+    public QueryAccountUseCase accountQueryUseCase(AccountRepository accountRepository) {
+        return new QueryAccountUseCase(
                 accountRepository
         );
     }
 
     ///  USER ////
     @Bean
-    public CreateUserUseCase createUserUseCase(UserRepository userRepository) {
-        return new CreateUserUseCase(
+    public RecordUserUseCase createUserUseCase(UserRepository userRepository) {
+        return new RecordUserUseCase(
                 userRepository
         );
     }
     @Bean
-    public UserQueryUseCase userQueryUseCase( UserRepository userRepository) {
-        return new UserQueryUseCase(
+    public QueryUserUseCase userQueryUseCase(UserRepository userRepository) {
+        return new QueryUserUseCase(
                 userRepository
         );
     }

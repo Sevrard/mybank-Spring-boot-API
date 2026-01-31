@@ -6,10 +6,10 @@ import com.bank.domain.repository.AccountRepository;
 import java.math.BigDecimal;
 import java.util.UUID;
 
-public class CreateAccountUseCase {
+public class RecordAccountUseCase {
 
     private final AccountRepository accountRepository;
-    public CreateAccountUseCase(AccountRepository accountRepository) {
+    public RecordAccountUseCase(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 

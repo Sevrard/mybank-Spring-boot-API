@@ -14,8 +14,8 @@ class TransferWithAuditUseCaseTest {
         FakeAccountRepository accountRepo = new FakeAccountRepository();
         FakeTransactionRepository transactionRepo = new FakeTransactionRepository();
 
-        TransferWithAuditUseCase useCase =
-                new TransferWithAuditUseCase(accountRepo, transactionRepo);
+        RecordTransferWithAuditUseCase useCase =
+                new RecordTransferWithAuditUseCase(accountRepo, transactionRepo);
 
         Account from = AccountTestFactory.createAccount(new BigDecimal("100.00"));
         Account to = AccountTestFactory.createAccount(new BigDecimal("50.00"));

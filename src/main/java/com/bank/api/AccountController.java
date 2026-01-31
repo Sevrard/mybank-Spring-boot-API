@@ -3,8 +3,8 @@ package com.bank.api;
 import com.bank.api.dto.AccountDto;
 import com.bank.api.dto.CreateAccountRequest;
 import com.bank.api.mapper.AccountDtoMapper;
-import com.bank.application.AccountQueryUseCase;
-import com.bank.application.CreateAccountUseCase;
+import com.bank.application.QueryAccountUseCase;
+import com.bank.application.RecordAccountUseCase;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,12 +14,12 @@ import java.util.UUID;
 @RequestMapping("/accounts")
 public class AccountController {
 
-    private final CreateAccountUseCase createAccountUseCase;
-    private final AccountQueryUseCase accountQueryUseCase;
+    private final RecordAccountUseCase createAccountUseCase;
+    private final QueryAccountUseCase accountQueryUseCase;
 
     public AccountController(
-            CreateAccountUseCase createAccountUseCase,
-            AccountQueryUseCase accountQueryUseCase
+            RecordAccountUseCase createAccountUseCase,
+            QueryAccountUseCase accountQueryUseCase
     ) {
         this.createAccountUseCase = createAccountUseCase;
         this.accountQueryUseCase = accountQueryUseCase;

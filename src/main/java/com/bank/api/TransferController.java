@@ -1,7 +1,7 @@
 package com.bank.api;
 
 import com.bank.api.dto.TransferRequest;
-import com.bank.application.TransferWithAuditUseCase;
+import com.bank.application.RecordTransferWithAuditUseCase;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/transfers")
 public class TransferController {
 
-    private final TransferWithAuditUseCase transferUseCase;
-    public TransferController(TransferWithAuditUseCase transferUseCase) {
+    private final RecordTransferWithAuditUseCase transferUseCase;
+    public TransferController(RecordTransferWithAuditUseCase transferUseCase) {
         this.transferUseCase = transferUseCase;
     }
 

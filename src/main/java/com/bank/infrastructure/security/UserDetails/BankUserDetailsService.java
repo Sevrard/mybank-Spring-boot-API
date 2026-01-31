@@ -1,12 +1,15 @@
 package com.bank.infrastructure.security.UserDetails;
 
 import com.bank.infrastructure.security.userCredentials.JpaUserCredentialsRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
+@Transactional
+
 public class BankUserDetailsService implements UserDetailsService {
 
     private final JpaUserCredentialsRepository repository;

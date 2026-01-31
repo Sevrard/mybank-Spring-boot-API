@@ -20,7 +20,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 class TransferWithAuditUseCaseIT {
 
     @Autowired
-    private TransferWithAuditUseCase useCase;
+    private RecordTransferWithAuditUseCase useCase;
 
     @Autowired
     private AccountRepository accountRepository;

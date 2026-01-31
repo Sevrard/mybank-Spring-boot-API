@@ -1,5 +1,6 @@
 package com.bank.application ;
 
+import com.bank.application.test.RecordTransactionUseCase;
 import com.bank.infrastructure.repository.FakeTransactionRepository;
 import org.junit.jupiter.api.Test;
 import com.bank.domain.Transaction;

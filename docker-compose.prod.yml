@@ -1,0 +1,14 @@
+services:
+  postgres-prod:
+    image: postgres:16
+    container_name: bank-postgres-prod
+    environment:
+      POSTGRES_DB: db_bank_prod
+      POSTGRES_USER: ffx
+      POSTGRES_PASSWORD: ffx
+    volumes:
+      - bank_pg_data_prod:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  bank_pg_data_prod:

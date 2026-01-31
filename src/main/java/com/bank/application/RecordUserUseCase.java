@@ -7,12 +7,12 @@ import org.slf4j.LoggerFactory;
 
 import java.util.UUID;
 
-public class CreateUserUseCase {
+public class RecordUserUseCase {
 
     private final UserRepository userRepository;
-    private static final Logger log = LoggerFactory.getLogger(CreateAccountUseCase.class);
+    private static final Logger log = LoggerFactory.getLogger(RecordAccountUseCase.class);
 
-    public CreateUserUseCase(UserRepository userRepository) {
+    public RecordUserUseCase(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 

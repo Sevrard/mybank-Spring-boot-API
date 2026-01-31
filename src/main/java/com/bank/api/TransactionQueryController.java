@@ -1,7 +1,7 @@
 package com.bank.api;
 
 import com.bank.api.dto.TransactionDto;
-import com.bank.application.TransactionQueryUseCase;
+import com.bank.application.QueryTransactionUseCase;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,9 +14,9 @@ import java.util.UUID;
 @RequestMapping("/transactions")
 public class TransactionQueryController {
 
-    private final TransactionQueryUseCase queryUseCase;
+    private final QueryTransactionUseCase queryUseCase;
 
-    public TransactionQueryController(TransactionQueryUseCase queryUseCase) {
+    public TransactionQueryController(QueryTransactionUseCase queryUseCase) {
         this.queryUseCase = queryUseCase;
     }
 

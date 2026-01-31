@@ -1,0 +1,4 @@
+services:
+  postgres-dev:
+    env_file:
+      - .env

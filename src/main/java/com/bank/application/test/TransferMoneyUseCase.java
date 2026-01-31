@@ -1,4 +1,4 @@
-package com.bank.application;
+package com.bank.application.test;
 
 import com.bank.domain.Account;
 import com.bank.domain.exception.account.AccountNotFoundException;

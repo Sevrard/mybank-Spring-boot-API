@@ -6,11 +6,11 @@ import com.bank.domain.repository.AccountRepository;
 import java.util.UUID;
 
 
-public class AccountQueryUseCase {
+public class QueryAccountUseCase {
 
     private final AccountRepository accountRepository;
 
-    public AccountQueryUseCase(AccountRepository accountRepository) {
+    public QueryAccountUseCase(AccountRepository accountRepository) {
         this.accountRepository = accountRepository;
     }
 
