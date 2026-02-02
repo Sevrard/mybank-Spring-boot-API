@@ -3,9 +3,11 @@ package com.bank.infrastructure.config;
 import com.bank.application.*;
 import com.bank.domain.repository.AccountRepository;
 import com.bank.domain.repository.TransactionRepository;
+import com.bank.domain.repository.UserCredentialsRepository;
 import com.bank.domain.repository.UserRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 public class UseCaseConfig{
@@ -44,11 +46,18 @@ public class UseCaseConfig{
 
     ///  USER ////
     @Bean
-    public RecordUserUseCase createUserUseCase(UserRepository userRepository) {
+    public RecordUserUseCase createUserUseCase(
+            UserRepository userRepository,
+            UserCredentialsRepository credentialsRepository,
+            PasswordEncoder passwordEncoder
+    ) {
         return new RecordUserUseCase(
-                userRepository
+                userRepository,
+                passwordEncoder,
+                credentialsRepository
         );
     }
+
     @Bean
     public QueryUserUseCase userQueryUseCase(UserRepository userRepository) {
         return new QueryUserUseCase(

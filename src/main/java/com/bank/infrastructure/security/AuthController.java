@@ -35,10 +35,8 @@ public class AuthController {
                                 request.password()
                         )
                 );
-
         UserCredentialsEntity principal = (UserCredentialsEntity) authentication.getPrincipal();
         String token = jwtService.generateToken(principal);
-
         return new LoginResponse(token);
     }
 }

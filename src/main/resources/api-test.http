@@ -3,10 +3,26 @@ POST http://localhost:8080/users
 Content-Type: application/json
 
 {
-  "firstname": "SAAAtephane",
+  "firstname": "EEEEEEEEEE",
   "lastname": "Evrard",
-  "email": "AAAA@test.com"
+  "email": "DEEEEEEEEEE@test.com",
+  "password": "AZERRRRRR"
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Get user
 GET http://localhost:8080/users/c166261b-88e3-4840-aa39-01548531e612
 

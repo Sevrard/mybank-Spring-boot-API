@@ -34,11 +34,9 @@ public class ApiExceptionHandler {
             Exception e,
             HttpServletRequest request
     ) {
-        // Sécurité ultime : on ne touche JAMAIS à Actuator
         if (request.getRequestURI().startsWith("/actuator")) {
             throw new RuntimeException(e);
         }
-
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(Map.of("error", "Internal error"));

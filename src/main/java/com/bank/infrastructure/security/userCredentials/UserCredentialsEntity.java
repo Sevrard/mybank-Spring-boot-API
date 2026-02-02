@@ -1,7 +1,7 @@
 package com.bank.infrastructure.security.userCredentials;
 
 import com.bank.infrastructure.persistence.user.UserEntity;
-import com.bank.infrastructure.security.UserDetails.Role;
+import com.bank.domain.Role;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -46,10 +46,6 @@ public class UserCredentialsEntity implements UserDetails {
         this.role = role;
     }
 
-    /* =========================
-       UserDetails implementation
-       ========================= */
-
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(
@@ -87,18 +83,13 @@ public class UserCredentialsEntity implements UserDetails {
         return enabled;
     }
 
-    /* =========================
-       Getters métier / utiles
-       ========================= */
 
     public UUID getUserId() {
         return userId;
     }
-
     public UserEntity getUser() {
         return user;
     }
-
     public Role getRole() {
         return role;
     }
