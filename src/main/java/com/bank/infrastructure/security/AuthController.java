@@ -37,6 +37,6 @@ public class AuthController {
                 );
         UserCredentialsEntity principal = (UserCredentialsEntity) authentication.getPrincipal();
         String token = jwtService.generateToken(principal);
-        return new LoginResponse(token);
+        return new LoginResponse(token, principal.getUserId());
     }
 }

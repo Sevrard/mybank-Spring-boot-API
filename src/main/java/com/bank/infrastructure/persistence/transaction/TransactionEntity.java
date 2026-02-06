@@ -32,14 +32,18 @@ public class TransactionEntity {
     @Column(name="account_id", nullable=false)
     private UUID accountId;
 
+    @Column(name="label", nullable = false)
+    private String label;
+
     protected TransactionEntity() {}
 
-    public TransactionEntity(UUID id, UUID accountId, BigDecimal amount, Transaction.TransactionType type){
+    public TransactionEntity(UUID id, UUID accountId, BigDecimal amount, Transaction.TransactionType type, String label){
         this.id = id;
         this.amount = amount;
         this.type = type;
         this.accountId = accountId;
         this.createdAt = LocalDateTime.now();
+        this.label = label;
     }
 
     public UUID getId(){ return id; }
@@ -47,4 +51,5 @@ public class TransactionEntity {
     public Transaction.TransactionType getType(){ return type; }
     public LocalDateTime getCreatedAt(){ return createdAt; };
     public UUID getAccountId(){ return accountId; }
+    public String getLabel(){ return label; }
 }

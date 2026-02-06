@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 public class TransferController {
 
     private final RecordTransferWithAuditUseCase transferUseCase;
+
     public TransferController(RecordTransferWithAuditUseCase transferUseCase) {
         this.transferUseCase = transferUseCase;
     }
@@ -21,7 +22,8 @@ public class TransferController {
         transferUseCase.execute(
                 dto.fromAccountId(),
                 dto.toAccountId(),
-                dto.amount()
+                dto.amount(),
+                dto.label()
         );
     }
 }

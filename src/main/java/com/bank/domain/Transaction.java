@@ -15,6 +15,7 @@ public class Transaction {
     private final TransactionType type;
     private final LocalDateTime createdAt = LocalDateTime.now();
     private final UUID accountId;
+    private final String label;
 
 
     public enum TransactionType {
@@ -22,7 +23,7 @@ public class Transaction {
         OUT
     }
 
-    public Transaction(UUID id, UUID accountId, BigDecimal amount, TransactionType type){
+    public Transaction(UUID id, UUID accountId, BigDecimal amount, TransactionType type, String label){
         if(id == null){
             throw new IllegalArgumentException("Transaction id required");
         }
@@ -39,6 +40,7 @@ public class Transaction {
         this.amount = amount;
         this.type = type;
         this.accountId = accountId;
+        this.label = label;
     }
 
     public UUID getId(){ return id; }
@@ -46,21 +48,24 @@ public class Transaction {
     public TransactionType getType(){ return type; }
     public LocalDateTime getCreatedAt(){ return createdAt; };
     public UUID getAccountId(){ return accountId; }
+    public String getLabel(){ return label; }
 
-    public static Transaction debit(UUID accountId, BigDecimal amount) {
+    public static Transaction debit(UUID accountId, BigDecimal amount, String label) {
         return new Transaction(
                 UUID.randomUUID(),
                 accountId,
                 amount,
-                TransactionType.OUT
+                TransactionType.OUT,
+                label
         );
     }
-    public static Transaction credit(UUID accountId, BigDecimal amount) {
+    public static Transaction credit(UUID accountId, BigDecimal amount, String label) {
         return new Transaction(
                 UUID.randomUUID(),
                 accountId,
                 amount,
-                TransactionType.IN
+                TransactionType.IN,
+                label
         );
     }
 

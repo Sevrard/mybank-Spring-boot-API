@@ -18,6 +18,23 @@ public class FakeAccountRepository implements AccountRepository {
     public Optional<Account> findById(UUID id) {
         return Optional.ofNullable(storage.get(id));
     }
+
+    @Override
+    public List<Account> findByUserId(UUID userId) {
+        return storage.values().stream()
+                .filter(account -> account.getUserId().equals(userId))
+                .toList();
+    }
+
+    @Override
+    public void delete(UUID id) {
+        Account account = storage.get(id);
+        if (account != null) {
+            account.setNotActive();
+            storage.put(id, account);
+        }
+    }
+
     @Override
     public void save(Account account) {
         storage.put(account.getId(), account);

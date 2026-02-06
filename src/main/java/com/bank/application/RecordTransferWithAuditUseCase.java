@@ -19,27 +19,21 @@ public class RecordTransferWithAuditUseCase {
     private final AccountRepository accountRepository;
     private final TransactionRepository transactionRepository;
 
-    public RecordTransferWithAuditUseCase(AccountRepository accountRepository,
-                                          TransactionRepository transactionRepository) {
+    public RecordTransferWithAuditUseCase(AccountRepository accountRepository,TransactionRepository transactionRepository) {
         this.accountRepository = accountRepository;
         this.transactionRepository = transactionRepository;
     }
 
     @Transactional
-    public void execute(UUID fromAccountId, UUID toAccountId, BigDecimal amount) {
+    public void execute(UUID fromAccountId, UUID toAccountId, BigDecimal amount, String label) {
 
-        log.info("GO TRANSFER ===============>  from={}, to={}, amount={}", fromAccountId, toAccountId, amount);
+        log.info("🚨TRANSFER from={}, to={}, amount={}, LABEL:{}", fromAccountId, toAccountId, amount, label);
 
-        if (fromAccountId.equals(toAccountId)) {
-            throw new SameAccountTransferException();
-        }
-        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) {
-            throw new InvalidTransactionAmountException();
-        }
+        if (fromAccountId.equals(toAccountId)) { throw new SameAccountTransferException();}
+        if (amount == null || amount.compareTo(BigDecimal.ZERO) <= 0) { throw new InvalidTransactionAmountException(); }
 
         Account from = accountRepository.findById(fromAccountId)
                 .orElseThrow(() -> new AccountNotFoundException(fromAccountId));
-
         Account to = accountRepository.findById(toAccountId)
                 .orElseThrow(() -> new AccountNotFoundException(toAccountId));
 
@@ -49,12 +43,8 @@ public class RecordTransferWithAuditUseCase {
         accountRepository.save(from);
         accountRepository.save(to);
 
-        transactionRepository.save(
-                Transaction.debit(fromAccountId, amount)
-        );
-        transactionRepository.save(
-                Transaction.credit(toAccountId, amount)
-        );
+        transactionRepository.save(Transaction.debit(fromAccountId, amount, label));
+        transactionRepository.save(Transaction.credit(toAccountId, amount, label));
     }
 
 }

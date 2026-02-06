@@ -10,7 +10,10 @@ public class AccountMapper {
                 entity.getId(),
                 entity.getName(),
                 entity.getBalance(),
-                entity.getUserId()
+                entity.getUserId(),
+                entity.getIban(),
+                entity.getBic(),
+                entity.getIsActive()
         );
     }
 
@@ -19,7 +22,10 @@ public class AccountMapper {
                 account.getId(),
                 account.getName(),
                 account.getBalance(),
-                account.getUserId()
+                account.getUserId(),
+                account.getIban(),
+                account.getBic(),
+                account.getIsActive()
         );
     }
 }

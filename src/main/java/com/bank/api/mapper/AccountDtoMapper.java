@@ -3,6 +3,8 @@ package com.bank.api.mapper;
 import com.bank.api.dto.AccountDto;
 import com.bank.domain.Account;
 
+import java.time.LocalDateTime;
+
 public class AccountDtoMapper {
 
     private AccountDtoMapper() {}
@@ -12,7 +14,11 @@ public class AccountDtoMapper {
                 account.getId(),
                 account.getName(),
                 account.getBalance(),
-                account.getUserId()
+                account.getUserId(),
+                account.getIban(),
+                account.getBic(),
+                account.getCreatedAt(),
+                account.getIsActive()
         );
     }
 }

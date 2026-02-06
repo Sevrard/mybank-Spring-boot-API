@@ -3,6 +3,8 @@ package com.bank.application;
 import com.bank.domain.Account;
 import com.bank.domain.exception.account.AccountNotFoundException;
 import com.bank.domain.repository.AccountRepository;
+
+import java.util.List;
 import java.util.UUID;
 
 
@@ -18,4 +20,13 @@ public class QueryAccountUseCase {
         return accountRepository.findById(accountId)
                 .orElseThrow(() -> new AccountNotFoundException(accountId));
     }
+
+    public List<Account> findByUserId(UUID userId) {
+        return accountRepository.findByUserId(userId);
+    }
+
+    public void delete(UUID accountId) {
+        accountRepository.delete(accountId);
+    }
+
 }

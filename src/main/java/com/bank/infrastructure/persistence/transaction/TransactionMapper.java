@@ -14,7 +14,8 @@ public class TransactionMapper {
                 entity.getId(),
                 entity.getAccountId(),
                 entity.getAmount(),
-                entity.getType()
+                entity.getType(),
+                entity.getLabel()
         );
     }
     public static TransactionEntity toEntity(Transaction transaction){
@@ -25,7 +26,8 @@ public class TransactionMapper {
                 transaction.getId(),
                 transaction.getAccountId(),
                 transaction.getAmount(),
-                transaction.getType()
+                transaction.getType(),
+                transaction.getLabel()
         );
     }
 }

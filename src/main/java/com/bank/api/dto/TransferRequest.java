@@ -9,5 +9,6 @@ import java.util.UUID;
 public record TransferRequest(
         @NotNull UUID fromAccountId,
         @NotNull UUID toAccountId,
-        @Positive BigDecimal amount
+        @Positive BigDecimal amount,
+        @NotNull String label
 ) {}

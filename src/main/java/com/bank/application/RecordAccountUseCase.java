@@ -14,7 +14,10 @@ public class RecordAccountUseCase {
     }
 
     public void execute(UUID id, String name, BigDecimal initialBalance, UUID userId) {
-        Account account = new Account(id, name, initialBalance, userId);
+        String randomIban = "FR76" + (long)(Math.random() * 10000000000L);
+        String defaultBic = "MYBANKFR22";
+
+        Account account = new Account(id, name, initialBalance, userId, randomIban, defaultBic, true);
         accountRepository.save(account);
     }
 }
